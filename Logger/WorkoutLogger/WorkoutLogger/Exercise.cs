@@ -18,9 +18,10 @@ namespace WorkoutLogger
 
         public string Show()
         {
-            if (Sets.All(s =>s.Weight == Sets[0].Weight && s.Reps == Sets[0].Reps))
+            if (Compare(Sets))
             {
-                return $"{Sets.Count} sets of {Sets[0].Reps} x {Sets[0].Weight} kg";
+                return $"{Name}:" +
+                       $"\n{Sets.Count} sets of {Sets[0].Reps} x {Sets[0].Weight} kg";
             }
 
             var sb = new StringBuilder();
@@ -40,6 +41,11 @@ namespace WorkoutLogger
             set.SetWeight();
             set.SetReps();
             Sets.Add(set);
+        }
+
+        private bool Compare(List<Set> Sets)
+        {
+            return Sets.All(s => s.Weight == Sets[0].Weight && s.Reps == Sets[0].Reps);
         }
         
         

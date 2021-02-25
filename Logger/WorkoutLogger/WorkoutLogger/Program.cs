@@ -8,19 +8,11 @@ namespace WorkoutLogger
         {
             var workout = new Workout();
             workout.GetTime();
+
+            //workout.SetTime();
             workout.AddExercises();
 
-
             Console.WriteLine(workout.Show());
-
-            //var ex = new Exercise("Benk");
-            //ex.AddSet();
-            //ex.AddSet();
-            //ex.AddSet();
-            //Console.WriteLine(ex.Show());
-
-
-
         }
     }
 }
